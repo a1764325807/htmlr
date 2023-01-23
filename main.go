@@ -14,6 +14,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", service.IndexHandler)
+	http.HandleFunc("/js", service.IndexHandler)
 	http.HandleFunc("/api/count", service.CounterHandler)
 
 	log.Fatal(http.ListenAndServe(":80", nil))

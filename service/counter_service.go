@@ -29,6 +29,14 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Fprint(w, data)
 }
+func IndexHandlerjs(w http.ResponseWriter, r *http.Request) {
+	data, err := getIndexjs()
+	if err != nil {
+		fmt.Fprint(w, "内部错误")
+		return
+	}
+	fmt.Fprint(w, data)
+}
 
 // CounterHandler 计数器接口
 func CounterHandler(w http.ResponseWriter, r *http.Request) {
@@ -152,6 +160,14 @@ func getAction(r *http.Request) (string, error) {
 // getIndex 获取主页
 func getIndex() (string, error) {
 	b, err := ioutil.ReadFile("./index.html")
+	if err != nil {
+		return "", err
+	}
+	return string(b), nil
+}
+
+func getIndexjs() (string, error) {
+	b, err := ioutil.ReadFile("./js/qrcode.js")
 	if err != nil {
 		return "", err
 	}
