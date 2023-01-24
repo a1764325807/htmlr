@@ -1,8 +1,6 @@
 package main
 
 import (
-	"demo/db"
-	"demo/handler"
 	"fmt"
 	"log"
 	"net/http"
