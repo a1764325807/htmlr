@@ -167,7 +167,7 @@ func getIndex() (string, error) {
 }
 
 func getIndexjs() (string, error) {
-	b, err := ioutil.ReadFile("./js/qrcode.js")
+	b, err := ioutil.ReadFile("./qrcode.js")
 	if err != nil {
 		return "", err
 	}
